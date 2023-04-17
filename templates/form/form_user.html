@@ -62,11 +62,11 @@
                 <div class="grid md:grid-cols-2 md:gap-6">
                     
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="number" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <input type="number" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Cedula* (Sin puntos)</label>
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <input datepicker datepicker-autohide type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <input datepicker datepicker-autohide type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fecha de nacimiento*</label>
                     </div>
                     
@@ -76,19 +76,45 @@
                     <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Correo electrónico*</label>
                 </div>
                 <div class="relative z-0 w-full mb-6 group">
-                    <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <input type="email" name="floating_email" id="floating_email" 
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                     <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Dirección de residencia*</label>
                 </div>
                 <div class="grid md:grid-cols-2 md:gap-6">
                     
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Comuna*</label>
+                        <select name="floating_last_name" id="floating_last_name" 
+                        class="block py-2.5 px-2 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                        <option selected>Comuna*</option>
+                            <option value="CA">Comuna 1 - Popular</option>
+                            <option value="FR">Comuna 2 - Santa Cruz</option>
+                            <option value="DE">Comuna 3 - Manrique</option>    
+                            <option value="CA">Comuna 4 - Aranjuez</option>
+                            <option value="FR">Comuna 5 - Castilla</option>
+                            <option value="DE">Comuna 6 - Doce de octubre</option>    
+                            <option value="CA">Comuna 7 - Robledo</option>
+                            <option value="FR">Comuna 8 - Villa Hermosa</option>
+                            <option value="DE">Comuna 9 - Buenos Aires</option>    
+                            <option value="DE">Comuna 10 - La Candelaria</option>    
+                            <option value="DE">Comuna 11 - Laureles-Estadio</option>    
+                            <option value="DE">Comuna 12 - La América</option>    
+                            <option value="DE">Comuna 13 - San Javier</option>    
+                            <option value="DE">Comuna 14 - Poblado</option>    
+                            <option value="DE">Comuna 15 - Guayabal</option>    
+                            <option value="DE">Comuna 16 - Belén</option>    
+                            <option value="DE">Comuna 50 - San Sebastián de Palmitas</option>    
+                            <option value="DE">Comuna 60 - San Cristóbal</option>    
+                            <option value="DE">Comuna 70 - Altavista</option>    
+                            <option value="DE">Comuna 80 - San Antonio de Prado</option>    
+                            <option value="DE">Comuna 90 - Santa Elena</option>    
+                        </select>
+                        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"></label>
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Barrio*</label>
                     </div>
+                    
                     
                 </div>
                 <div class="flex items-start mb-6">
