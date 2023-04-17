@@ -1,0 +1,1 @@
+web: gunicorn edwin_leon.wsgi --log-file -
