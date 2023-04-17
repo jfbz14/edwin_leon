@@ -83,39 +83,38 @@
                 <div class="grid md:grid-cols-2 md:gap-6">
                     
                     <div class="relative z-0 w-full mb-6 group">
-                        <select name="floating_last_name" id="floating_last_name" 
-                        class="block py-2.5 px-2 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
-                        <option selected>Comuna*</option>
-                            <option value="CA">Comuna 1 - Popular</option>
-                            <option value="FR">Comuna 2 - Santa Cruz</option>
-                            <option value="DE">Comuna 3 - Manrique</option>    
-                            <option value="CA">Comuna 4 - Aranjuez</option>
-                            <option value="FR">Comuna 5 - Castilla</option>
-                            <option value="DE">Comuna 6 - Doce de octubre</option>    
-                            <option value="CA">Comuna 7 - Robledo</option>
-                            <option value="FR">Comuna 8 - Villa Hermosa</option>
-                            <option value="DE">Comuna 9 - Buenos Aires</option>    
-                            <option value="DE">Comuna 10 - La Candelaria</option>    
-                            <option value="DE">Comuna 11 - Laureles-Estadio</option>    
-                            <option value="DE">Comuna 12 - La América</option>    
-                            <option value="DE">Comuna 13 - San Javier</option>    
-                            <option value="DE">Comuna 14 - Poblado</option>    
-                            <option value="DE">Comuna 15 - Guayabal</option>    
-                            <option value="DE">Comuna 16 - Belén</option>    
-                            <option value="DE">Comuna 50 - San Sebastián de Palmitas</option>    
-                            <option value="DE">Comuna 60 - San Cristóbal</option>    
-                            <option value="DE">Comuna 70 - Altavista</option>    
-                            <option value="DE">Comuna 80 - San Antonio de Prado</option>    
-                            <option value="DE">Comuna 90 - Santa Elena</option>    
+                        <select name="floating_last_name" id="floating_last_name" class="block py-2.5 px-2 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                            <option selected>Comuna*</option>
+                            <option value="Comuna_1">Comuna 1 - Popular</option>
+                            <option value="Comuna_2">Comuna 2 - Santa Cruz</option>
+                            <option value="Comuna_3">Comuna 3 - Manrique</option>    
+                            <option value="Comuna_4">Comuna 4 - Aranjuez</option>
+                            <option value="Comuna_5">Comuna 5 - Castilla</option>
+                            <option value="Comuna_6">Comuna 6 - Doce de octubre</option>    
+                            <option value="Comuna_7">Comuna 7 - Robledo</option>
+                            <option value="Comuna_8">Comuna 8 - Villa Hermosa</option>
+                            <option value="Comuna_9">Comuna 9 - Buenos Aires</option>    
+                            <option value="Comuna_10">Comuna 10 - La Candelaria</option>    
+                            <option value="Comuna_11">Comuna 11 - Laureles-Estadio</option>    
+                            <option value="Comuna_12">Comuna 12 - La América</option>    
+                            <option value="Comuna_13">Comuna 13 - San Javier</option>    
+                            <option value="Comuna_14">Comuna 14 - Poblado</option>    
+                            <option value="Comuna_15">Comuna 15 - Guayabal</option>    
+                            <option value="Comuna_16">Comuna 16 - Belén</option>    
+                            <option value="Comuna_50">Comuna 50 - San Sebastián de Palmitas</option>    
+                            <option value="Comuna_60">Comuna 60 - San Cristóbal</option>    
+                            <option value="Comuna_70">Comuna 70 - Altavista</option>    
+                            <option value="Comuna_80">Comuna 80 - San Antonio de Prado</option>    
+                            <option value="Comuna_90">Comuna 90 - Santa Elena</option>    
                         </select>
                         <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"></label>
                     </div>
+
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Barrio*</label>
+                        <input type="number" min="4" max="4" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Lider</label>
                     </div>
-                    
-                    
+                                        
                 </div>
                 <div class="flex items-start mb-6">
                     <div class="flex items-center h-5">
