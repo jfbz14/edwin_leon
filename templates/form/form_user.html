@@ -12,25 +12,20 @@
 <section class="mb-8 pb-4">
     <div class="grid max-w-screen-xl px-2 py-2 mx-auto mb-4 lg:gap-8 xl:gap-4 lg:py-4 lg:grid-cols-2">
 
-        <div class="mx-auto place-self-center lg:col-span-1">
-            <h1 class="mb-2 text-3xl font-light tracking-tight leading-none md:text-4xl xl:text-5xl dark:text-white text-center">
-                Edwin Leon
-                <button id="theme-toggle" type="button" class="inline-flex flex-col items-center justify-center mx-4 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-                    <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6 mb-1 text-blue-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">
-                        </path>
-                    </svg>
-                    <svg id="theme-toggle-light-icon" class="hidden w-6 h-6 mb-1 text-yellow-300 dark:text-yellow-300 group-hover:text-blue-600 dark:group-hover:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                </button>
-            </h1>
-
-            <a href="#">
-                <img class="rounded-lg md:h-96 my-2" src="{% static 'img/edwin.jpeg' %}" alt="product image" />
-            </a>
-
+        <div class="mx-auto place-self-center lg:col-span-1 ">
             
-            <p class="max-w-2xl mb-6 text-2xl font-light text-green-800 tracking-tight leading-none md:text-3xl xl:text-4xl dark:text-green-400 text-center">
+            
+
+                <h1 class="text-3xl mb-2 font-light tracking-tight leading-none md:text-4xl xl:text-5xl dark:text-white text-center">
+                    Edwin Leon
+                    
+                </h1>
+                                       
+                <a href="#" >
+                    <img class="w-96 mb-2 mx-auto" src="{% static 'img/img.png' %}" alt="product image" />
+                </a>
+            
+            <p class="max-w-2xl mb-6 text-2xl font-light text-green-800 tracking-tight leading-none md:text-3xl xl:text-4xl dark:text-green-600 text-center">
                 Por una ciudad sostenible y llena de oportunidades
             </p>
             
@@ -50,7 +45,7 @@
 
             {% else %}
         
-            <form class="px-2 pt-6 pb-4 bg-gray-100 dark:bg-gray-700 border-t rounded-lg shadow-lg shadow-blue-500/50">
+            <form class="px-2 pt-6 pb-4 bg-gray-100 dark:bg-gray-600 border-t rounded-lg shadow-lg shadow-blue-500/50">
                 <div class="relative z-0 w-full mb-6 group">
                     <input type="text" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                     <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombres*</label>
@@ -83,7 +78,7 @@
                 <div class="grid md:grid-cols-2 md:gap-6">
                     
                     <div class="relative z-0 w-full mb-6 group">
-                        <select name="floating_last_name" id="floating_last_name" class="block py-2.5 px-2 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                        <select name="floating_last_name" id="floating_last_name" class="block py-2.5 px-2 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
                             <option selected>Comuna*</option>
                             <option value="Comuna_1">Comuna 1 - Popular</option>
                             <option value="Comuna_2">Comuna 2 - Santa Cruz</option>
@@ -134,26 +129,38 @@
 </section>
 
 <div class="fixed bottom-0 left-0 z-50 w-full h-14 bg-gray-50 border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600">
-    <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
+
+    <div class="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
+
+        <button id="theme-toggle" type="button" class="inline-flex flex-col items-center justify-center mx-4 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+            <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6 mb-1 text-blue-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">
+                </path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-6 h-6 mb-1 text-yellow-300 dark:text-yellow-300 group-hover:text-blue-600 dark:group-hover:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Tema</span>
+
+        </button>
         
         <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
            
-            <img class="w-6 h-6 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/face.png' %}" alt="product image" />
+            <img class="w-6 h-6 my-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/face.png' %}" alt="product image" />
             <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Facebook</span>
         </button>
         <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
            
-            <img class="w-6 h-6 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/insta.png' %}" alt="product image" />
+            <img class="w-6 h-6 my-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/insta.png' %}" alt="product image" />
             <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Instagram</span>
         </button>
         <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
            
-            <img class="w-6 h-6 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/twi.png' %}" alt="product image" />
+            <img class="w-6 h-6 my-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/twi.png' %}" alt="product image" />
             <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Twitter</span>
         </button>
         <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
            
-            <img class="w-6 h-6 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/you.png' %}" alt="product image" />
+            <img class="w-6 h-6 my-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/you.png' %}" alt="product image" />
             <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">YouTube</span>
         </button>
         
