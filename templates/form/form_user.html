@@ -3,132 +3,432 @@
 
 {% block content %}
 
-<section class="rounded-lg">
-    <div class="border-t-4 border-yellow-300 my-2">
-                       
-    </div>
-</section>
+<script>
+    function change(alcaldia, colonia){
+        alcaldia = document.getElementById(alcaldia);
+        colonia = document.getElementById(colonia);
+        colonia.value ="";
+        colonia.innerHTML = "";
+        if(alcaldia.value == "Comuna_1"){
+        var optionArray = ["|","Santo Domingo Savio Nº 1|Santo Domingo Savio Nº 1",
+                            "Santo Domingo Sabio Nº 2|Santo Domingo Sabio Nº 2",
+                            "Popular|Popular",
+                            "Granizal|Granizal",
+                            "Villa Guadalupe|Villa Guadalupe",
+                            "San Pablo|San Pablo",
+                            "Aldea Pablo VI|Aldea Pablo VI",
+                            "La Esperanza Nº 2|La Esperanza Nº 2",
+                            "El Compromiso|El Compromiso",
+                            "La Avanzada|La Avanzada",
+                            "Carpinelo|Carpinelo"];
+        } else if(alcaldia.value == "Comuna_2"){
+        var optionArray = ["|","La Isla|La Isla",
+                                  "El Playón de Los Comuneros|El Playón de Los Comuneros",
+                                  "Pablo VI|Pablo VI",
+                                  "La Frontera|La Frontera",
+                                  "La Francia|La Francia",
+                                  "Andalucía|Andalucía",
+                                  "Villa del Socorro|Villa del Socorro",
+                                  "Villa Niza|Villa Niza",
+                                  "Moscú Nº 1|Moscú Nº 1",
+                                  "Santa Cruz|Santa Cruz",
+                                  "La Rosa|La Rosa"];                              
+        } else if(alcaldia.value == "Comuna_3"){
+        var optionArray = ["|","La Salle|La Salle",
+                                  "Las Granjas|Las Granjas",
+                                  "Campo Valdes Nº 2|Campo Valdes Nº 2",
+                                  "Santa Inés|Santa Inés",
+                                  "El Raizal|El Raizal",
+                                  "El Pomar|El Pomar",
+                                  "Manrique Central No. 2|Manrique Central No. 2",
+                                  "Manrique Oriental|Manrique Oriental",
+                                  "Versalles Nº 1|Versalles Nº 1",
+                                  "Versalles Nº 2|Versalles Nº 2",
+                                  "La Cruz|La Cruz",
+                                  "Oriente|Oriente",
+                                  "Maria Cano Carambolas|Maria Cano Carambolas",
+                                  "San José La Cima Nº 1|San José La Cima Nº 1",
+                                  "San José La Cima Nº 2|San José La Cima Nº 2"];                           
+        } else if(alcaldia.value == "Comuna_4"){
+        var optionArray = ["|","Berlín|Berlín",
+                                  "San Isidro|San Isidro",
+                                  "Palermo|Palermo",
+                                  "Bermejal Los Álamos|Bermejal Los Álamos",
+                                  "Moravia|Moravia",
+                                  "Sevilla|Sevilla",
+                                  "San Pedro|San Pedro",
+                                  "Manrique Central Nº 1|Manrique Central Nº 1",
+                                  "Campo Valdes Nº 1|Campo Valdes Nº 1",
+                                  "Las Esmeraldas|Las Esmeraldas",
+                                  "La Piñuela|La Piñuela",
+                                  "Aranjuez|Aranjuez",
+                                  "Brasilia|Brasilia",
+                                  "Miranda|Miranda"];                            
+        } else if(alcaldia.value == "Comuna_5"){ 
+        var optionArray = ["|","Toscana|Toscana",
+                                  "Las Brisas|Las Brisas",
+                                  "Florencia|Florencia",
+                                  "Tejelo|Tejelo",
+                                  "Boyacá|Boyacá",
+                                  "Héctor Abad Gómez|Héctor Abad Gómez",
+                                  "Belalcazar|Belalcazar",
+                                  "Girardot|Girardot",
+                                  "Tricentenario|Tricentenario",
+                                  "Castilla|Castilla",
+                                  "Francisco Antonio Zea|Francisco Antonio Zea",
+                                  "Alfonso López|Alfonso López",
+                                  "Caribe|Caribe",
+                                  "El Progreso|El Progreso"];                           
+        } else if(alcaldia.value == "Comuna_6"){
+        var optionArray = ["|","Santander|Santander",
+                                  "Doce de Octubre Nº 1|Doce de Octubre Nº 1",
+                                  "Doce de Octubre Nº 2|Doce de Octubre Nº 2",
+                                  "Pedregal|Pedregal",
+                                  "La Esperanza|La Esperanza",
+                                  "San Martín de Porres|San Martín de Porres",
+                                  "Kennedy|Kennedy",
+                                  "Picacho|Picacho",
+                                  "Picachito|Picachito",
+                                  "Mirador del Doce|Mirador del Doce",
+                                  "Progreso Nº 2|Progreso Nº 2",
+                                  "El Triunfo|El Triunfo"];                          
+        } else if(alcaldia.value == "Comuna_7"){
+        var optionArray = ["|","Cerro El Volador|Cerro El Volador",
+                                  "San Germán|San Germán",
+                                  "Facultad de Minas Universidad Nacional|Facultad de Minas Universidad Nacional",
+                                  "La Pilarica|La Pilarica",
+                                  "Bosques de San Pablo|Bosques de San Pablo",
+                                  "Altamira|Altamira",
+                                  "Córdoba|Córdoba",
+                                  "López de Mesa|López de Mesa",
+                                  "El Diamante|El Diamante",
+                                  "Aures Nº 1|Aures Nº 1",
+                                  "Aures Nº 2|Aures Nº 2",
+                                  "Bello Horizonte|Bello Horizonte",
+                                  "Villa Flora|Villa Flora",
+                                  "Palenque|Palenque",
+                                  "Robledo|Robledo",
+                                  "Cucaracho|Cucaracho",
+                                  "Fuente Clara|Fuente Clara",
+                                  "Santa Margarita|Santa Margarita",
+                                  "Olaya Herrera|Olaya Herrera",
+                                  "Pajarito|Pajarito",
+                                  "Monteclaro|Monteclaro",
+                                  "Nueva Villa de La Iguaná|Nueva Villa de La Iguaná"];
+        } else if(alcaldia.value == "Comuna_8"){
+        var optionArray = ["|","Villa Hermosa|Villa Hermosa",
+                                "La Mansión|La Mansión",
+                                "San Miguel|San Miguel",
+                                "La Ladera|La Ladera",
+                                "Batallón Girardot|Batallón Girardot",
+                                "Llanaditas|Llanaditas",
+                                "Los Mangos|Los Mangos",
+                                "Enciso|Enciso",
+                                "Sucre|Sucre",
+                                "El Pinal|El Pinal",
+                                "Trece de Noviembre|Trece de Noviembre",
+                                "La Libertad|La Libertad",
+                                "Villatina|Villatina",
+                                "San Antonio|San Antonio",
+                                "Las Estancias|Las Estancias",
+                                "Villa Turbay|Villa Turbay",
+                                "La Sierra|La Sierra",
+                                "Villa Lilliam|Villa Lilliam"];
+        } else if(alcaldia.value == "Comuna_9"){
+        var optionArray = ["|","Juan Pablo II|Juan Pablo II",
+                              " Barrios de Jesús| Barrios de Jesús",
+                              "Bombona Nº 2|Bombona Nº 2",
+                              "Los Cerros El Vergel|Los Cerros El Vergel",
+                              "Alejandro Echavarría|Alejandro Echavarría",
+                              "Barrio Caicedo|Barrio Caicedo",
+                              "Buenos Aires|Buenos Aires",
+                              "Miraflores|Miraflores",
+                              "Cataluña|Cataluña",
+                              "La Milagrosa|La Milagrosa",
+                              "Gerona|Gerona",
+                              "El SalvadorEl Salvador",
+                              "Loreto|Loreto",
+                              "Asomadera Nº 1|Asomadera Nº 1",
+                              "Asomadera Nº 2|Asomadera Nº 2",
+                              "Asomadera Nº 3|Asomadera Nº 3",
+                              "Ocho de Marzo|Ocho de Marzo"];
+        } else if(alcaldia.value == "Comuna_10"){
+        var optionArray = ["|","Prado|Prado",
+                              "Jesús Nazareno|Jesús Nazareno",
+                              "Estación Villa|Estación Villa",
+                              "San Benito|San Benito",
+                              "Guayaquil|Guayaquil",
+                              "Corazón de Jesús|Corazón de Jesús",
+                              "Perpetuo Socorro|Perpetuo Socorro",
+                              "Barrio Colón|Barrio Colón",
+                              "Las Palmas|Las Palmas",
+                              "Bomboná Nº 1|Bomboná Nº 1",
+                              "Boston|Boston",
+                              "La Candelaria|La Candelaria",
+                              "Los Ángeles|Los Ángeles",
+                              "San Diego|San Diego"];
+        } else if(alcaldia.value == "Comuna_11"){
+        var optionArray = ["|","Carlos E. Restrepo|Carlos E. Restrepo"
+                            ,"Suramericana|Suramericana",
+                            "Naranjal|Naranjal",
+                            "San Joaquín|San Joaquín",
+                            "Los Conquistadores|Los Conquistadores",
+                            "Bolivariana|Bolivariana",
+                            "Laureles|Laureles",
+                            "Las Acacias|Las Acacias",
+                            "La Castellana|La Castellana",
+                            "Lorena|Lorena",
+                            "El Velódromo|El Velódromo",
+                            "Estadio|Estadio",
+                            "Los Colores|Los Colores",
+                            "Cuarta Brigada|Cuarta Brigada",
+                            "Florida Nueva|Florida Nueva"];
+        } else if(alcaldia.value == "Comuna_12"){
+        var optionArray = ["|","Ferrini|Ferrini"
+                            ,"Calasanz|Calasanz",
+                            "Los Pinos|Los Pinos",
+                            "La América|La América",
+                            "La Floresta|La Floresta",
+                            "Santa Lucia|Santa Lucia",
+                            "El Danubio|El Danubio",
+                            "Campo Alegre|Campo Alegre",
+                            "Santa Mónica|Santa Mónica",
+                            "Barrio Cristóbal|Barrio Cristóbal",
+                            "Simón Bolívar|Simón Bolívar",
+                            "Santa Teresita|Santa Teresita",
+                            "Calasanz Parte Alta|Calasanz Parte Alta",];
+        } else if(alcaldia.value == "Comuna_13"){
+        var optionArray = ["|","El Pesebre|El Pesebre",
+                              "Blanquizal|Blanquizal",
+                              "Santa Rosa de Lima|Santa Rosa de Lima",
+                              "Los Alcázares|Los Alcázares",
+                              "Metropolitano|Metropolitano",
+                              "La Pradera|La Pradera",
+                              "Juan XIII La Quiebra|Juan XIII La Quiebra",
+                              "San Javier Nº 1|San Javier Nº 1",
+                              "San Javier Nº 2|San Javier Nº 2",
+                              "Veinte de Julio|Veinte de Julio",
+                              "Belencito|Belencito",
+                              "Betania|Betania",
+                              "El Corazón|El Corazón",
+                              "Las Independencias|Las Independencias",
+                              "Nuevos Conquistadores|Nuevos Conquistadores",
+                              "El Salado|El Salado",
+                              "Eduardo Santos|Eduardo Santos",
+                              "Antonio Nariño|Antonio Nariño",
+                              "El Socorro|El Socorro"];
+        } else if(alcaldia.value == "Comuna_14"){
+        var optionArray = ["|","Barrio Colombia|Barrio Colombia",
+                              "Simesa|Simesa",
+                              "Villa Carlota|Villa Carlota",
+                              "Castropol|Castropol",
+                              "Lalinde|Lalinde",
+                              "Las Lomas Nº 1|Las Lomas Nº 1",
+                              "Las Lomas Nº 2|Las Lomas Nº 2",
+                              "Altos del Poblado|Altos del Poblado",
+                              "El Tesoro|El Tesoro",
+                              "Los Naranjos|Los Naranjos",
+                              "Los Balsos Nº 1|Los Balsos Nº 1",
+                              "Los Balsos Nº 2|Los Balsos Nº 2",
+                              "San Lucas|San Lucas",
+                              "El Diamante Nº 2|El Diamante Nº 2",
+                              "El Castillo|El Castillo",
+                              "Alejandría|Alejandría",
+                              "La Florida|La Florida",
+                              "El Poblado|El Poblado",
+                              "Manila|Manila",
+                              "Astorga|Astorga",
+                              "Patio Bonito|Patio Bonito",
+                              "La Aguacatala|La Aguacatala",
+                              "Santa María de Los Ángeles|Santa María de Los Ángeles"];
+        } else if(alcaldia.value == "Comuna_15"){
+        var optionArray = ["|","Tenche|Tenche",
+                              "Trinidad|Trinidad",
+                              "Santa Fé,|Santa Fé,",
+                              "Parque Juan Pablo II|Parque Juan Pablo II",
+                              "Campo Amor|Campo Amor",
+                              "Noel|Noel",
+                              "Cristo Rey|Cristo Rey",
+                              "Guayabal|Guayabal",
+                              "La Colina|La Colina",
+                              "El Rodeo|El Rodeo"];
+        } else if(alcaldia.value == "Comuna_16"){
+        var optionArray = ["|","Fátima|Fátima",
+                              "Rosales|Rosales",
+                              "Belén|Belén",
+                              "Granada|Granada",
+                              "San Bernardo|San Bernardo",
+                              "Las Playas|Las Playas",
+                              "Diego Echevarria|Diego Echevarria",
+                              "La Mota|La Mota",
+                              "La Hondonada|La Hondonada",
+                              "El Rincón|El Rincón",
+                              "La Loma de Los Bernal|La Loma de Los Bernal",
+                              "La Gloria|La Gloria",
+                              "Altavista|Altavista",
+                              "La Palma|La Palma",
+                              "Los Alpes|Los Alpes",
+                              "Las Violetas|Las Violetas",
+                              "Las Mercedes|Las Mercedes",
+                              "Nueva Villa de Aburrá|Nueva Villa de Aburrá",
+                              "Miravalle|Miravalle",
+                              "El Nogal – Los Almendros|El Nogal – Los Almendros",
+                              "Cerro Nutibara|Cerro Nutibara"];                 
+        } else if(alcaldia.value == "Comuna_50"){
+        var optionArray = ["|","San Sebastián de Palmitas|San Sebastián de Palmitas"];                 
+        } else if(alcaldia.value == "Comuna_60"){
+        var optionArray = ["|","San CristóbalSan Cristóbal"];                 
+        } else if(alcaldia.value == "Comuna_70"){
+        var optionArray = ["|","Altavista|Altavista"];                 
+        } else if(alcaldia.value == "Comuna_80"){
+        var optionArray = ["|","San Antonio de Prado|San Antonio de Prado"];                 
+        } else if(alcaldia.value == "Comuna_90"){
+        var optionArray = ["|","Santa Elena|Santa Elena"];                 
+        };
+    
+        for(option = 0;option < optionArray.length; option++){
+            var pair = optionArray[option].split("|");
+            var newOption = document.createElement("option");
+            newOption.value = pair[0];
+            newOption.innerHTML = pair[1];
+            colonia.options.add(newOption);
+        };    
+    }
+</script>
+
+
 
 <section class="mb-8 pb-4">
-    <div class="grid max-w-screen-xl px-2 py-2 mx-auto mb-4 lg:gap-8 xl:gap-4 lg:py-4 lg:grid-cols-2">
+
+    <div class="grid max-w-screen-xl px-2 py-2 mx-auto mb-4 lg:gap-4 xl:gap-4 lg:py-4 lg:grid-cols-2">
 
         <div class="mx-auto place-self-center lg:col-span-1 ">
-            
-            
 
-                <h1 class="text-3xl mb-2 font-light tracking-tight leading-none md:text-4xl xl:text-5xl dark:text-white text-center">
-                    Edwin Leon
-                    
-                </h1>
-                                       
-                <a href="#" >
-                    <img class="w-96 mb-2 mx-auto" src="{% static 'img/img.png' %}" alt="product image" />
-                </a>
-            
-            <p class="max-w-2xl mb-6 text-2xl font-light text-green-800 tracking-tight leading-none md:text-3xl xl:text-4xl dark:text-green-600 text-center">
+            <h1 class="text-black text-4xl mb-2 pb-2 font-bold tracking-tight leading-none md:text-4xl xl:text-5xl text-center rounded-full shadow-lg bg-yellow-300">
+                Edwin Leon
+            </h1>      
+            <a href="#" >
+                <img class="w-56 mb-2 mx-auto" src="{% static 'img/img.png' %}" alt="product image" />
+            </a>            
+            <p class="max-w-2xl mb-6 text-2xl font-light text-gray-800 tracking-tight leading-none md:text-3xl xl:text-4xl text-center">
                 Por una ciudad sostenible y llena de oportunidades
             </p>
-            
         </div>
 
         <div class="lg:col-span-1 w-full place-self-center">
-
-
             {% if form_valid %}
 
-            <div class="mx-auto">
-            
-                <p class="max-w-2xl mb-6 text-2xl font-light text-green-800 tracking-tight leading-none md:text-3xl xl:text-4xl dark:text-green-400 text-center">
-                    ¡Gracias por contactarnos! Nos pondremos en contacto con usted en breve.
-                </p>
-            </div> 
+                <div class="mx-auto">                
+                    <p class="max-w-2xl mb-6 text-2xl font-light text-green-600 tracking-tight leading-none md:text-3xl xl:text-4xl dark:text-green-600 text-center">
+                        ¡Gracias por contactarnos! Nos pondremos en contacto con usted en breve.
+                    </p>
+                </div> 
 
             {% else %}
         
-            <form class="px-2 pt-6 pb-4 bg-gray-100 dark:bg-gray-600 border-t rounded-lg shadow-lg shadow-blue-500/50">
-                <div class="relative z-0 w-full mb-6 group">
-                    <input type="text" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombres*</label>
-                </div>
-                <div class="relative z-0 w-full mb-6 group">
-                    <input type="text" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Apellidos*</label>
-                </div>
-                <div class="grid md:grid-cols-2 md:gap-6">
-                    
-                    <div class="relative z-0 w-full mb-6 group">
-                        <input type="number" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Cedula* (Sin puntos)</label>
+                <form class="px-2 sm:px-4 pt-4 pb-4 bg-gray-100 dark:bg-gray-600 border-t rounded-lg shadow-lg shadow-blue-500/50">
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input type="text" name="name" id="floating_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="floating_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombres*</label>
                     </div>
-                    <div class="relative z-0 w-full mb-6 group">
-                        <input datepicker datepicker-autohide type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fecha de nacimiento*</label>
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input type="text" name="last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Apellidos*</label>
                     </div>
-                    
-                </div>
-                <div class="relative z-0 w-full mb-6 group">
-                    <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Correo electrónico*</label>
-                </div>
-                <div class="relative z-0 w-full mb-6 group">
-                    <input type="email" name="floating_email" id="floating_email" 
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Dirección de residencia*</label>
-                </div>
-                <div class="grid md:grid-cols-2 md:gap-6">
-                    
-                    <div class="relative z-0 w-full mb-6 group">
-                        <select name="floating_last_name" id="floating_last_name" class="block py-2.5 px-2 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
-                            <option selected>Comuna*</option>
-                            <option value="Comuna_1">Comuna 1 - Popular</option>
-                            <option value="Comuna_2">Comuna 2 - Santa Cruz</option>
-                            <option value="Comuna_3">Comuna 3 - Manrique</option>    
-                            <option value="Comuna_4">Comuna 4 - Aranjuez</option>
-                            <option value="Comuna_5">Comuna 5 - Castilla</option>
-                            <option value="Comuna_6">Comuna 6 - Doce de octubre</option>    
-                            <option value="Comuna_7">Comuna 7 - Robledo</option>
-                            <option value="Comuna_8">Comuna 8 - Villa Hermosa</option>
-                            <option value="Comuna_9">Comuna 9 - Buenos Aires</option>    
-                            <option value="Comuna_10">Comuna 10 - La Candelaria</option>    
-                            <option value="Comuna_11">Comuna 11 - Laureles-Estadio</option>    
-                            <option value="Comuna_12">Comuna 12 - La América</option>    
-                            <option value="Comuna_13">Comuna 13 - San Javier</option>    
-                            <option value="Comuna_14">Comuna 14 - Poblado</option>    
-                            <option value="Comuna_15">Comuna 15 - Guayabal</option>    
-                            <option value="Comuna_16">Comuna 16 - Belén</option>    
-                            <option value="Comuna_50">Comuna 50 - San Sebastián de Palmitas</option>    
-                            <option value="Comuna_60">Comuna 60 - San Cristóbal</option>    
-                            <option value="Comuna_70">Comuna 70 - Altavista</option>    
-                            <option value="Comuna_80">Comuna 80 - San Antonio de Prado</option>    
-                            <option value="Comuna_90">Comuna 90 - Santa Elena</option>    
-                        </select>
-                        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"></label>
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        
+                        <div class="relative z-0 w-full mb-4 group">
+                            <input type="number" name="document" id="floating_document" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                            <label for="floating_document" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Cedula* (Sin puntos)</label>
+                        </div>
+                        <div class="relative z-0 w-full mb-6 group">
+                            <input datepicker datepicker-autohide type="text" name="date" id="floating_date" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                            <label for="floating_date" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fecha de nacimiento*</label>
+                        </div>                        
+                    </div>
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input type="email" name="email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Correo electrónico*</label>
+                    </div>
+                   
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        <div class="relative z-0 w-full mb-4 group">
+                            <input type="number" name="phone" id="floating_phone" 
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                            <label for="floating_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Telefono</label>
+                        </div>
+                        <div class="relative z-0 w-full mb-4 group">
+                            <input type="number" name="leader" id="floating_leader" 
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "/>
+                            <label for="floating_leader" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Lider</label>
+                        </div>                                            
+                    </div>
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input type="text" name="address" id="floating_address" 
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="floating_address" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Dirección de residencia*</label>
+                    </div>
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        
+                        <div class="relative z-0 w-full mb-4 group">
+                            <select name="commune" 
+                                id="Alcaldia"  
+                                data-placeholder="- Seleccione Alcaldía -"
+                                onchange="change(this.id, 'colonia')"
+                                value="<%= typeof Alcaldia != 'undefined' ? Alcaldia : '' %>"class="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                                <option selected>Comuna*</option>
+                                <option value="Comuna_1">Comuna 1 - Popular</option>
+                                <option value="Comuna_2">Comuna 2 - Santa Cruz</option>
+                                <option value="Comuna_3">Comuna 3 - Manrique</option>    
+                                <option value="Comuna_4">Comuna 4 - Aranjuez</option>
+                                <option value="Comuna_5">Comuna 5 - Castilla</option>
+                                <option value="Comuna_6">Comuna 6 - Doce de octubre</option>    
+                                <option value="Comuna_7">Comuna 7 - Robledo</option>
+                                <option value="Comuna_8">Comuna 8 - Villa Hermosa</option>
+                                <option value="Comuna_9">Comuna 9 - Buenos Aires</option>    
+                                <option value="Comuna_10">Comuna 10 - La Candelaria</option>    
+                                <option value="Comuna_11">Comuna 11 - Laureles-Estadio</option>    
+                                <option value="Comuna_12">Comuna 12 - La América</option>    
+                                <option value="Comuna_13">Comuna 13 - San Javier</option>    
+                                <option value="Comuna_14">Comuna 14 - Poblado</option>    
+                                <option value="Comuna_15">Comuna 15 - Guayabal</option>    
+                                <option value="Comuna_16">Comuna 16 - Belén</option>    
+                                <option value="Comuna_50">Comuna 50 - San Sebastián de Palmitas</option>    
+                                <option value="Comuna_60">Comuna 60 - San Cristóbal</option>    
+                                <option value="Comuna_70">Comuna 70 - Altavista</option>    
+                                <option value="Comuna_80">Comuna 80 - San Antonio de Prado</option>    
+                                <option value="Comuna_90">Comuna 90 - Santa Elena</option> 
+                            </select>
+                            <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"></label>
+                        </div>
+                        <div class="relative z-0 w-full mb-4 group">
+                            <select id="colonia" name="barrio" data-placeholder="- Seleccione Colonia -"|                           
+                                value="<%= typeof Colonia != 'undefined' ? Colonia : '' %>" class="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                                <option selected>Barrio*</option>
+                            </select>
+                            <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"></label>
+                        </div>
+                                            
                     </div>
 
-                    <div class="relative z-0 w-full mb-6 group">
-                        <input type="number" min="4" max="4" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Lider</label>
+                    <div class="flex items-start mb-6">
+                        <div class="flex items-center h-5">
+                        <input name="neighborhood" id="terms" type="checkbox" value="" class="w-4 h-4 border border-gray-600 rounded bg-gray-50 focus:ring-3 focus:ring-green-400 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
+                        </div>
+                        <label for="terms" class="ml-2 text-xs font-medium text-gray-900 dark:text-gray-300">
+                            *Al registrarte, aceptas que tus datos sean tratados según la Ley 1581 de 2012 <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_bank" class="text-blue-600 hover:underline dark:text-blue-400"> ley 1581 de 2012</a></label>
                     </div>
-                                        
-                </div>
-                <div class="flex items-start mb-6">
-                    <div class="flex items-center h-5">
-                    <input id="terms" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
-                    </div>
-                    <label for="terms" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        *Al registrarte aceptas que tus datos sean tratados conforme a la <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_bank" class="text-blue-600 hover:underline dark:text-blue-500">ley 1581 de 2012</a></label>
-                </div>
-                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">ENVIAR</button>
-            </form>
+
+                    <button type="submit" class="text-white bg-blue-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-green-600 dark:focus:ring-blue-800">ENVIAR</button>
+                </form>
         
             {% endif %}
 
         </div>    
-
     </div>
 </section>
 
-<div class="fixed bottom-0 left-0 z-50 w-full h-14 bg-gray-50 border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600">
+<div class="fixed bottom-0 left-0 z-50 w-full h-14 bg-gray-50 border-t-4 border-yellow-300 dark:bg-gray-700 ">
 
     <div class="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
 
@@ -140,9 +440,7 @@
             <svg id="theme-toggle-light-icon" class="hidden w-6 h-6 mb-1 text-yellow-300 dark:text-yellow-300 group-hover:text-blue-600 dark:group-hover:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                 <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Tema</span>
-
-        </button>
-        
+        </button>        
         <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
            
             <img class="w-6 h-6 my-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/face.png' %}" alt="product image" />
@@ -166,6 +464,5 @@
         
     </div>
 </div>
-
-
+      
 {% endblock content %}
