@@ -22,6 +22,8 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 AUTH_USER_MODEL = 'profile_user.User'
 
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
+
 # Application definition
 
 INSTALLED_APPS = [
