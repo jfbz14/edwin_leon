@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 
     # Local
     'profile_user',
+    'form_user',
 ]
 
 MIDDLEWARE = [

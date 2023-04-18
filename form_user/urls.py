@@ -2,16 +2,16 @@
 from django.urls import path
 
 # View
-from . import views
+from .views import FormUserView
 
 
-app_name = 'form_user'
+app_name = 'forms_users'
 
 urlpatterns = [
 
     path(
         route='',
-        view=views.index,
+        view=FormUserView.as_view(),
         name='register'
     ),
 ]
