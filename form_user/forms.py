@@ -13,7 +13,7 @@ class FormUserProfile(forms.ModelForm):
         """Form settings"""
 
         model = UserProfile
-        fields = ('__all__')
+        exclude = ['leader']
 
     def clean_date(self):
         """ validate date valid. """

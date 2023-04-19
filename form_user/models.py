@@ -12,7 +12,7 @@ class UserProfile(models.Model):
     date = models.DateField()
     email = models.EmailField()
     phone_number = models.CharField(max_length=10)
-    leader = models.CharField(max_length=4, default="SYSTEM")
+    leader = models.CharField(max_length=4, default="1111")
     address = models.CharField(max_length=150)
     commune = models.CharField(max_length=150)
     neighborhood = models.CharField(max_length=150)
