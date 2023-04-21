@@ -304,14 +304,14 @@
 
         <div class="mx-auto place-self-center lg:col-span-1 p-2 ">
 
-            <h1 class="text-black text-4xl mb-2 pb-1 font-bold tracking-tight leading-none md:text-4xl xl:text-5xl text-center rounded-full shadow-lg bg-yellow-300">
+            <h1 class="text-black text-4xl mb-4 pb-1 font-bold tracking-tight leading-none md:text-4xl xl:text-5xl text-center rounded-full shadow-lg bg-yellow-300">
                 Edwin Leon
             </h1>      
             <a href="#" >
                 <img class="w-72 mb-2 mx-auto" src="{% static 'img/img.png' %}" alt="product image" />
             </a>            
             <p class="max-w-2xl mb-6 text-2xl font-light text-gray-800 tracking-tight leading-none md:text-3xl xl:text-4xl text-center">
-                Por una ciudad sostenible y llena de oportunidades
+                Por una ciudad sostenible y llena de oportunidades <br><span class="font-bold text-blue-600"> #Juntosesmasfacil</span>
             </p>
         </div>
 
@@ -320,7 +320,7 @@
 
                 <div class="mx-auto">                
                     <p class="max-w-2xl mb-6 text-2xl font-light text-gray-800 tracking-tight leading-none md:text-3xl xl:text-4xl dark:text-gray-800 text-center">
-                        "¡¡Bienvenido a bordo! Tu apoyo marca la diferencia y, juntos, podemos transformar Medellín en una ciudad próspera e inclusiva."
+                        "¡Bienvenido a bordo! Tu apoyo marca la diferencia y, juntos, podemos transformar Medellín en una ciudad próspera e inclusiva."
                     </p>
                 </div> 
                 <div class="mx-auto text-center">                
@@ -328,8 +328,11 @@
                 </div> 
 
             {% else %}
-        
-                <form class="px-2 sm:px-4 pt-4 pb-4 bg-gray-100 dark:bg-gray-600 border-t rounded-lg shadow-lg shadow-blue-500/50" method="POST">
+            
+                <form class="px-1 sm:px-4 pb-4 bg-gray-100 dark:bg-gray-600 border-t rounded-lg shadow-lg shadow-blue-500/50" method="POST">
+                    <p class="mb-4 mt-2 text-base font-medium text-green-600 dark:text-green-200 leading-none  text-center shadow-lg px-1 py-1 ">
+                        Diligencia el formulario y sé parte de nuestro equipo, porque juntos es más fácil impulsar el cambio que Medellín necesita.
+                    </p>
                     {% csrf_token %}
 
                     <div class="relative z-0 w-full mb-4 group">
@@ -348,7 +351,7 @@
                         </div>
                         <div class="relative z-0 w-full mb-2 group">
                             <input datepicker datepicker-format="yyyy-mm-dd" datepicker-autohide  type="text" name="date" id="floating_date" value="{% if form.date.value%}{{form.date.value}}{% endif %}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                            <label for="floating_date" class="peer-focus:font-medium absolute text-sm {% if form.date.errors %}text-red-500 dark:text-red-100 peer-focus:text-red-500 peer-focus:dark:text-red-100{%else%}text-gray-500 dark:text-gray-100 peer-focus:text-blue-600 peer-focus:dark:text-blue-500{% endif %} duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">{% if form.date.errors %}{{form.date.errors}}{% else %}Fecha de nacimiento*<span class="text-xs">(A-M-D)<span>{% endif %}</label>
+                            <label for="floating_date" class="peer-focus:font-medium absolute text-sm {% if form.date.errors %}text-red-500 dark:text-red-100 peer-focus:text-red-500 peer-focus:dark:text-red-100{%else%}text-gray-500 dark:text-gray-100 peer-focus:text-blue-600 peer-focus:dark:text-blue-500{% endif %} duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">{% if form.date.errors %}{{form.date.errors}}{% else %}Fecha de nacimiento*<span class="text-xs">(aaaa/mm/dd)<span>{% endif %}</label>
                         </div>                        
                     </div>
                     <div class="relative z-0 w-full mb-4 group">
@@ -425,10 +428,10 @@
                         <input name="is_valid" id="terms" type="checkbox" class="w-4 h-4 border border-gray-600 rounded bg-gray-50 focus:ring-3 focus:ring-green-400 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
                         </div>
                         <label for="terms" class="ml-2 text-xs font-medium text-gray-900 dark:text-gray-300">
-                            *Al registrarte, aceptas que tus datos sean tratados según la Ley 1581 de 2012 <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_bank" class="text-blue-600 hover:underline dark:text-blue-400"> ley 1581 de 2012</a></label>
+                            *Al registrarte, aceptas que tus datos sean tratados según la <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_bank" class="text-blue-600 hover:underline dark:text-blue-400"> ley 1581 de 2012</a></label>
                     </div>
 
-                    <button type="submit" class="text-white bg-blue-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-green-600 dark:focus:ring-blue-800">ENVIAR</button>
+                    <button type="submit" class="text-white bg-blue-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-green-600 dark:focus:ring-blue-800">UNIRME</button>
                 </form>
         
             {% endif %}
