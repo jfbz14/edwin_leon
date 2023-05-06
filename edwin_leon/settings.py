@@ -22,7 +22,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 AUTH_USER_MODEL = 'profile_user.User'
 
-CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
+#CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
 
 # Application definition
 
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'edwin_leon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-""" 
+
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -95,6 +95,7 @@ DATABASES = {
     default=env('DATABASE_URL')
     )
 } 
+""" 
  
 
 

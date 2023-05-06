@@ -1,9 +1,10 @@
 # Django
+from django.contrib.admin.widgets import AutocompleteSelect
 from django import forms
 from datetime import datetime, timedelta
 
 #model
-from .models import UserProfile
+from .models import UserProfile, UserLeader
 
 
 class FormUserProfile(forms.ModelForm):
@@ -47,3 +48,31 @@ class FormUserProfile(forms.ModelForm):
         if neighborhood == '' or neighborhood == 'Barrio*':
             raise forms.ValidationError('Seleccionar barrio')
         return neighborhood
+
+
+class FormUserProfile(forms.ModelForm):
+    """model form"""
+
+    class Meta:
+        """Form settings"""
+
+        model = UserLeader
+        fields = "__all__"
+
+        
+
+    def clean_date(self):
+        """ validate date valid. """
+
+        date = self.cleaned_data['date']
+        date_today = datetime.now().date()
+        min_days = timedelta(days=6570).days
+        date_valid = (date_today - date).days  
+        
+        if date > date_today:
+            raise forms.ValidationError('Fecha no futura')
+        elif min_days > date_valid:
+            raise forms.ValidationError('Fecha invalida')          
+        else:
+            return date
+

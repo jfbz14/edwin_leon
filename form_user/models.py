@@ -1,6 +1,33 @@
 from django.db import models
 
 
+class UserLeader(models.Model):
+    """model userleader"""
+
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    document_number = models.CharField(max_length=50, unique=True, error_messages={
+            "unique": "Documento ya ha sido registrado",
+        },)
+    date = models.DateField()
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=10)
+
+    def __str__(self):
+        """return last_name and doucemnt_number"""
+
+        return '{} {}'.format(self.first_name, self.last_name)    
+
+    def save(self, *args, **kwargs ):
+        """for uppercase fields"""
+
+        self.first_name = self.first_name.upper()
+        self.last_name = self.last_name.upper()
+        self.email = self.email.upper()
+
+        super().save(*args, **kwargs)
+
+
 class UserProfile(models.Model):
     """model form user"""
 
