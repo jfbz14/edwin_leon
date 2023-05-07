@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    #"whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,24 +80,21 @@ WSGI_APPLICATION = 'edwin_leon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+"""
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+}
 
-if DEBUG is True:
-    DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': BASE_DIR / 'db.sqlite3',
-            }
-    }
-else:
-
-    CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
-    DATABASES = {
-    'default': dj_database_url.config(
-        default=env('DATABASE_URL')
-        )
-    } 
-
- 
+"""
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
+DATABASES = {
+'default': dj_database_url.config(
+    default=env('DATABASE_URL')
+    )
+} 
 
 
 # Password validation
@@ -154,11 +151,5 @@ COMPRESS_ENABLED = env('COMPRESS_ENABLED')
 
 STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.AppDirectoriesFinder", 'compressor.finders.CompressorFinder',)
 
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+
 #STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATICFILES_STORAGE = django.contrib.staticfiles.storage.StaticFilesStorage
