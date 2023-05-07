@@ -72,6 +72,8 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'edwin_leon.wsgi.application'
 
 
@@ -152,5 +154,11 @@ COMPRESS_ENABLED = env('COMPRESS_ENABLED')
 
 STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.AppDirectoriesFinder", 'compressor.finders.CompressorFinder',)
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
