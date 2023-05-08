@@ -13,8 +13,8 @@ class FormUserView(FormView):
     template_name = 'form/form_user.html'
     form_class = FormUserProfile
     extra_context = {
-        'communes': CommuneModel.objects.all(),
-        'neighborhoods' : NeighborhoodModel.objects.all(),
+        'communes': CommuneModel.objects.all().order_by('id'),
+        'neighborhoods' : NeighborhoodModel.objects.all().order_by('name_neighborhood'),
         }
 
     def form_valid(self, form):
