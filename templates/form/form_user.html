@@ -36,6 +36,7 @@
     }
 </script>
 
+
 <section class="mb-8 pb-4">
     
     <div class="grid max-w-screen-xl p-2 mx-auto mb-4 lg:gap-4 xl:gap-4 lg:grid-cols-2">
@@ -64,102 +65,157 @@
             {% if request.GET.register == 'register_valid' %}
 
                 <div class="mx-auto">                
-                    <p class="max-w-2xl mb-6 text-2xl font-light text-gray-800 tracking-tight leading-none md:text-3xl xl:text-4xl dark:text-gray-800 text-center">
+                    <p class="max-w-2xl mb-6 text-2xl font-light text-gray-800 tracking-tight leading-none md:text-3xl xl:text-4xl text-center">
                         "¡Bienvenido a bordo! Tu apoyo marca la diferencia y, juntos, podemos transformar Medellín en una ciudad próspera e inclusiva."
                     </p>
                 </div> 
                 <div class="mx-auto text-center">                
-                    <a href="{% url 'forms_users:register' %}" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center  mb-2">Nuevo Registro</a>
+                    <a href="{% url 'forms_users:register' %}" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 shadow-lg shadow-green-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">Nuevo Registro</a>
                 </div> 
 
             {% else %}
             
-                <form class="px-1 sm:px-4 pb-4 bg-gray-100 dark:bg-gray-600 border-t rounded-lg shadow-lg shadow-blue-500/50" method="POST">
-                    <p class="mb-4 pb-2 mt-2 px-2 py-1 bg-transparent text-base text-green-800 dark:text-white leading-none text-justify rounded-lg shadow-lg ">
+                <form class="px-1 sm:px-4 pb-4 bg-gray-150 border border-green-300 rounded-lg shadow-lg shadow-green-500/50" method="POST">
+                    <p class="mb-4 pb-2 mt-2 px-2 py-1 bg-transparent border border-yellow-300 text-base text-green-800 leading-none text-justify rounded-lg shadow-lg ">
                         Diligencia el formulario y sé parte de nuestro equipo, porque juntos es más fácil impulsar el cambio que Medellín necesita.
                     </p>
                     {% csrf_token %}
 
-                    <div class="relative z-0 w-full mb-4 group">
-                        <input type="text" name="first_name" id="floating_name" value="{% if form.first_name.value%}{{form.first_name.value}}{% endif %}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="floating_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombres*</label>
+                    <div class="relative z-0 w-full mb-2 group">
+                        <label for="small-input" class="block text-sm font-medium text-gray-900">Lider*</label>
+                        {{form.leader}}
                     </div>
-                    <div class="relative z-0 w-full mb-4 group">
-                        <input type="text" name="last_name" id="floating_last_name" value="{% if form.last_name.value%}{{form.last_name.value}}{% endif %}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Apellidos*</label>
+
+                    <div class="relative z-0 w-full mb-2 group">
+                        <label for="nombre" class="block text-sm font-medium text-green-800">
+                        Nombres*</label>
+                        <input 
+                            type="text" 
+                            name="first_name"
+                            value="{% if form.first_name.value%}{{form.first_name.value}}{% endif %}" 
+                            class="block w-full py-1 px-2 text-sm text-gray-900 border border-gray-300 rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
                     </div>
+                    
+                    <div class="relative z-0 w-full mb-2 group">
+                        <label for="apellido" class="block text-sm font-medium text-green-800" >Apellidos*</label>
+                        <input 
+                            type="text"
+                            name="last_name" 
+                            value="{% if form.last_name.value%}{{form.last_name.value}}{% endif %}" 
+                            class="block w-full py-1 px-2 text-sm text-gray-900 border border-gray-300 rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    
                     <div class="grid md:grid-cols-2 md:gap-6">
-                        
-                        <div class="relative z-0 w-full mb-4 group">
-                            <input type="number" name="document_number" id="floating_document" value="{% if form.document_number.value%}{{form.document_number.value}}{% endif %}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                            <label for="floating_document" class="peer-focus:font-medium absolute text-sm {% if form.document_number.errors %}text-red-500 dark:text-red-100 peer-focus:text-red-500 peer-focus:dark:text-red-100{%else%}text-gray-500 dark:text-gray-100 peer-focus:text-blue-600 peer-focus:dark:text-blue-500{% endif %} duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">{% if form.document_number.errors %}{{form.document_number.errors}}{% else %}Cedula* (Sin puntos) {% endif %}</label>
-                        </div>
                         <div class="relative z-0 w-full mb-2 group">
-                            <input datepicker datepicker-format="yyyy-mm-dd" datepicker-autohide  type="text" name="date" id="floating_date" value="{% if form.date.value%}{{form.date.value}}{% endif %}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                            <label for="floating_date" class="peer-focus:font-medium absolute text-sm {% if form.date.errors %}text-red-500 dark:text-red-100 peer-focus:text-red-500 peer-focus:dark:text-red-100{%else%}text-gray-500 dark:text-gray-100 peer-focus:text-blue-600 peer-focus:dark:text-blue-500{% endif %} duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">{% if form.date.errors %}{{form.date.errors}}{% else %}Fecha de nacimiento*<span class="text-xs">(aaaa/mm/dd)<span>{% endif %}</label>
-                        </div>                        
-                    </div>
-                    <div class="relative z-0 w-full mb-4 group">
-                        <input type="email" name="email" id="floating_email" value="{% if form.email.value%}{{form.email.value}}{% endif %}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Correo electrónico*</label>
-                    </div>                   
-                    <div class="grid md:grid-cols-2 md:gap-6">
-                        <div class="relative z-0 w-full mb-4 group">
-                            <input type="number" name="phone_number" id="floating_phone" value="{% if form.phone_number.value%}{{form.phone_number.value}}{% endif %}"
-                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                            <label for="floating_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Telefono*</label>
+                            <label for="documento" 
+                                class="block text-sm font-medium {% if form.document_number.errors %}text-red-500 {%else%}text-green-800{% endif %}">
+                                {% if form.document_number.errors %}{{form.document_number.errors}}{% else %}Cedula* (Sin puntos) {% endif %}
+                            </label>
+                            <input type="number" 
+                            name="document_number" 
+                            value="{% if form.document_number.value%}{{form.document_number.value}}{% endif %}" 
+                            class="block w-full py-1 px-2 text-sm border{% if form.document_number.errors %}text-red-500 border-red-300 {%else%}text-gray-900 border-gray-300{% endif %} rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
                         </div>
-                        <div class="relative z-0 w-full mb-4 group">
-                            <input type="number" name="leader" id="floating_leader" value="{% if form.leader.value%}{{form.leader.value}}{% endif %}" 
-                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "/>
-                            <label for="floating_leader" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Lider</label>
-                        </div>                                            
+
+                        <div class="relative z-0 w-full mb-2 group">
+                            <label for="fecha" 
+                                class="block text-sm font-medium {% if form.date.errors %}text-red-500 {%else%}text-green-800{% endif %}">
+                                {% if form.date.errors %}{{form.date.errors}}{% else %}Fecha de nacimiento*<span class="text-xs">(aaaa/mm/dd)<span>{% endif %}
+                            </label>
+                            <input type="date" 
+                            name="date" 
+                            max="2005-01-01"
+                            value="{% if form.date.value%}{{form.date.value}}{% endif %}" 
+                            class="block w-full py-1 px-2 text-sm border{% if form.date.errors %}text-red-500 border-red-300 {%else%}text-gray-900 border-gray-300{% endif %} rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                                                
                     </div>
-                    <div class="relative z-0 w-full mb-4 group">
-                        <input type="text" name="address" id="floating_address" value="{% if form.address.value%}{{form.address.value}}{% endif %}"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="floating_address" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Dirección de residencia*</label>
-                    </div>
+
+                    <div class="relative z-0 w-full mb-2 group">
+                        <label for="documento" 
+                            class="block text-sm font-medium text-green-800">
+                            Correo*
+                        </label>
+                        <input type="email" 
+                        name="email" 
+                        value="{% if form.email.value%}{{form.email.value}}{% endif %}" 
+                        class="block w-full py-1 px-2 text-sm border text-gray-900 border-gray-300 rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>  
+
+                    <div class="relative z-0 w-full mb-2 group">
+                        <label for="documento" 
+                            class="block text-sm font-medium text-green-800">
+                            Telefono*
+                        </label>
+                        <input type="number" 
+                        name="phone_number" 
+                        value="{% if form.phone_number.value%}{{form.phone_number.value}}{% endif %}" 
+                        class="block w-full py-1 px-2 text-sm border text-gray-900 border-gray-300 rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>                 
+                    
+                    <div class="relative z-0 w-full mb-2 group">
+                        <label for="direccion" 
+                            class="block text-sm font-medium text-green-800">
+                            Dirección*
+                        </label>
+                        <input type="text" 
+                        name="address" 
+                        value="{% if form.address.value%}{{form.address.value}}{% endif %}" 
+                        class="block w-full py-1 px-2 text-sm border text-gray-900 border-gray-300 rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>                 
+                                                               
                     <div class="grid md:grid-cols-2 md:gap-6">
-                        
-                        <div class="relative z-0 w-full mb-4 group">
-                            {% if form.commune.errors %}
-                                <span class='text-red-400 text-xs'>{{form.commune.errors}}</span>
-                            {% endif%}
-                            <select name="commune" 
-                                id="commune"  
+
+                        <div class="relative z-0 w-full mb-2 group">
+
+                            <label for="small" 
+                                class="block text-sm font-medium {% if form.commune.errors %}text-red-500 {%else%}text-green-800{% endif %}">
+                                {% if form.commune.errors %}{{form.commune.errors}}{% else %}Comuna*{% endif %}
+                            </label>
+                            <select 
+                                name="commune"
+                                id="commune" 
                                 data-placeholder="- Seleccione Comuna -"
                                 onchange="change(this.id, 'colonia')"
-                                value="<%= typeof commune != 'undefined' ? commune : '' %>" 
-                                value="{% if form.address.value%}{{form.address.value}}{% endif %}"
-                                class="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
-                                <option value="Comuna*">Comuna*</option>
+                                value="<%= typeof commune != 'undefined' ? commune : '' %>"
+                                class="block w-full p-1.5 border{% if form.commune.errors %}text-red-500 border-red-300 {%else%}text-gray-900 border-gray-300{% endif %} rounded-md bg-white text-xs focus:ring-blue-500 focus:border-blue-500" required>
+                                <option value="Comuna*"></option>
                                 {% for commune in communes %}
                                 <option value="{{commune.name_commune}}">{{commune.name_commune}} - {{commune.description}}</option>
                                 {%endfor%}
-                                
                             </select>
-                            <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"></label>
                         </div>
-                        <div class="relative z-0 w-full mb-4 group">
-                            {% if form.neighborhood.errors %}<span class='text-red-400 text-xs'>{{form.neighborhood.errors}}</span>{% endif%}
-                            <select id="colonia" name="neighborhood" data-placeholder="- Seleccione Colonia -"|                           
-                                value="<%= typeof Colonia != 'undefined' ? Colonia : '' %>" class="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
-                                <option value="Barrio*" selected>Barrio*</option>
+                        
+                        <div class="relative z-0 w-full mb-2 group">
+                            
+                            <label for="small" 
+                                class="block text-sm font-medium {% if form.neighborhood.errors %}text-red-500 {%else%}text-green-800{% endif %}">
+                                {% if form.neighborhood.errors %}{{form.neighborhood.errors}}{% else %}Barrio*{% endif %}
+                            </label>
+                            <select 
+                                name="neighborhood"
+                                id="colonia" 
+                                data-placeholder="- Seleccione Barrio -"                               
+                                value="<%= typeof Colonia != 'undefined' ? Colonia : '' %>"
+                                class="block w-full p-1.5 border{% if form.neighborhood.errors %}text-red-500 border-red-300 {%else%}text-gray-900 border-gray-300{% endif %} rounded-md bg-white text-xs focus:ring-blue-500 focus:border-blue-500" required>
+                                <option value="Barrio*" selected></option>
                             </select>
-                            <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"> </label>
                         </div>
+                        
+                       
                                             
                     </div>
-                    <div class="flex items-start mb-6">
+
+
+                    <div class="flex items-start mb-2">
                         <div class="flex items-center h-5">
-                        <input name="is_valid" id="terms" type="checkbox" class="w-4 h-4 border border-gray-600 rounded bg-gray-50 focus:ring-3 focus:ring-green-400 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
+                        <input name="is_valid" id="terms" type="checkbox" class="w-4 h-4 border border-gray-600 rounded bg-gray-50 focus:ring-3 focus:ring-green-400 " required>
                         </div>
-                        <label for="terms" class="ml-2 text-xs font-medium text-gray-900 dark:text-gray-300">
-                            *Al registrarte, aceptas que tus datos sean tratados según la <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_bank" class="text-blue-600 hover:underline dark:text-blue-400"> ley 1581 de 2012</a></label>
+                        <label for="terms" class="ml-2 text-xs font-medium text-gray-900">
+                            *Al registrarte, aceptas que tus datos sean tratados según la <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_bank" class="text-blue-600 hover:underline"> ley 1581 de 2012</a></label>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="text-white bg-blue-600 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-blue-600 font-medium rounded-lg text-lg w-48 py-1 text-center">Unirme</button>
+                        <button type="submit" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-800 shadow-lg shadow-green-800/80 font-medium rounded-lg text-md px-8 py-2 text-center">Unirme</button>
                     </div>                    
                 </form>
         
@@ -169,39 +225,35 @@
     </div>
 </section>
 
-<div class="fixed bottom-0 left-0 z-50 w-full h-14 bg-gray-50 border-t-4 border-yellow-300 dark:bg-gray-700 pt-2">
+<div class="fixed bottom-0 left-0 z-50 w-full h-14 bg-gray-600 border-t-4 border-yellow-300 pt-2">
 
-    <div class="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
-
-        <button id="theme-toggle" type="button" class="inline-flex flex-col items-center justify-center mx-4 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-            <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6 mb-1 text-blue-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">
-                </path>
-            </svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-6 h-6 mb-1 text-yellow-300 dark:text-yellow-300 group-hover:text-blue-600 dark:group-hover:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Tema</span>
-        </button>        
-        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+    <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+            <svg 
+            class="w-6 h-6 text-white group-hover:text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"></path>
+              </svg>
            
-            <img class="w-6 h-6 my-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/face.png' %}" alt="product image" />
-            <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Facebook</span>
+            
+            <span class="text-sm text-white group-hover:text-blue-600">Web</span>
         </button>
-        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+       
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
            
-            <img class="w-6 h-6 my-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/insta.png' %}" alt="product image" />
-            <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Instagram</span>
+            <img class="w-6 h-6 my-1 text-white group-hover:text-blue-600" src="{% static 'img/face.png' %}" alt="product image" />
+            <span class="text-sm text-white  group-hover:text-blue-600 ">Facebook</span>
         </button>
-        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
            
-            <img class="w-6 h-6 my-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/twi.png' %}" alt="product image" />
-            <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Twitter</span>
+            <img class="w-6 h-6 my-1 text-white group-hover:text-blue-600 " src="{% static 'img/insta.png' %}" alt="product image" />
+            <span class="text-sm text-white group-hover:text-blue-600 ">Instagram</span>
         </button>
-        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
            
-            <img class="w-6 h-6 my-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" src="{% static 'img/you.png' %}" alt="product image" />
-            <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">YouTube</span>
+            <img class="w-6 h-6 my-1 text-white group-hover:text-blue-600" src="{% static 'img/twi.png' %}" alt="product image" />
+            <span class="text-sm text-white group-hover:text-blue-600 ">Twitter</span>
         </button>
+        
         
     </div>
 </div>

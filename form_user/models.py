@@ -34,7 +34,7 @@ class UserProfile(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     document_number = models.CharField(max_length=50, unique=True, error_messages={
-            "unique": "Documento ya ha sido registrado",
+            "unique": "Documento está registrado",
         },)
     date = models.DateField()
     email = models.EmailField()
@@ -56,7 +56,6 @@ class UserProfile(models.Model):
         self.first_name = self.first_name.upper()
         self.last_name = self.last_name.upper()
         self.email = self.email.upper()
-        self.leader = self.leader.upper()
         self.address = self.address.upper()
         self.commune = self.commune.upper()
         self.neighborhood = self.neighborhood.upper()

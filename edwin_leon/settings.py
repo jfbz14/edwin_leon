@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     # Local
     'profile_user',
     'form_user',
+
+    # django_select2
+    'django_select2',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +80,6 @@ WSGI_APPLICATION = 'edwin_leon.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 """
 DATABASES = {
         'default': {
@@ -115,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'America/Bogota'
 

@@ -1,9 +1,21 @@
 # Django
 from django import forms
 from datetime import datetime, timedelta
+from django_select2 import forms as s2forms
 
 #model
 from .models import UserProfile, UserLeader
+
+
+class AuthorWidget(s2forms.ModelSelect2Widget):
+    search_fields = [
+        "first_name__icontains",
+        "last_name__icontains",
+    ]
+    empty_label= 'Seleccione lider'
+
+    def build_attrs(self, base_attrs, extra_attrs=None):
+        return super().build_attrs(base_attrs, extra_attrs={'class':'w-full '})
 
 
 class FormUserProfile(forms.ModelForm):
@@ -14,6 +26,9 @@ class FormUserProfile(forms.ModelForm):
 
         model = UserProfile
         exclude = ['is_valid']
+        widgets = {
+            "leader": AuthorWidget,
+        }
 
     def clean_date(self):
         """ validate date valid. """
@@ -35,7 +50,7 @@ class FormUserProfile(forms.ModelForm):
 
         commune = self.cleaned_data['commune']
 
-        if commune == '' or commune == 'Comuna*':
+        if commune.upper() == '' or commune == 'COMUNA*':
             raise forms.ValidationError('Seleccionar comuna')
         return commune
 
@@ -44,12 +59,12 @@ class FormUserProfile(forms.ModelForm):
 
         neighborhood = self.cleaned_data['neighborhood']
 
-        if neighborhood == '' or neighborhood == 'Barrio*':
+        if neighborhood.upper() == '' or neighborhood == 'BARRIO*':
             raise forms.ValidationError('Seleccionar barrio')
         return neighborhood
 
 
-class FormUserProfile(forms.ModelForm):
+class FormUserLeader(forms.ModelForm):
     """model form"""
 
     class Meta:
