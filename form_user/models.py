@@ -72,7 +72,7 @@ class CommuneModel(models.Model):
     def __str__(self):
         """return name"""
 
-        return '{}'.format(self.name_communa)
+        return '{}'.format(self.name_commune)
 
 
 class NeighborhoodModel(models.Model):
