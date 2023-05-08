@@ -4,287 +4,27 @@
 {% block content %}
 
 <script>
-    function change(alcaldia, colonia){
-        alcaldia = document.getElementById(alcaldia);
+    function change(commune, colonia){
+        commune = document.getElementById(commune);
         colonia = document.getElementById(colonia);
         colonia.value ="";
         colonia.innerHTML = "";
-        if(alcaldia.value == "Comuna_1"){
-        var optionArray = ["Barrio*|Barrio*","Santo Domingo Savio Nº 1|Santo Domingo Savio Nº 1",
-                            "Santo Domingo Sabio Nº 2|Santo Domingo Sabio Nº 2",
-                            "Popular|Popular",
-                            "Granizal|Granizal",
-                            "Villa Guadalupe|Villa Guadalupe",
-                            "San Pablo|San Pablo",
-                            "Aldea Pablo VI|Aldea Pablo VI",
-                            "La Esperanza Nº 2|La Esperanza Nº 2",
-                            "El Compromiso|El Compromiso",
-                            "La Avanzada|La Avanzada",
-                            "Carpinelo|Carpinelo"];
-        } else if(alcaldia.value == "Comuna_2"){
-        var optionArray = ["Barrio*|Barrio*","La Isla|La Isla",
-                                  "El Playón de Los Comuneros|El Playón de Los Comuneros",
-                                  "Pablo VI|Pablo VI",
-                                  "La Frontera|La Frontera",
-                                  "La Francia|La Francia",
-                                  "Andalucía|Andalucía",
-                                  "Villa del Socorro|Villa del Socorro",
-                                  "Villa Niza|Villa Niza",
-                                  "Moscú Nº 1|Moscú Nº 1",
-                                  "Santa Cruz|Santa Cruz",
-                                  "La Rosa|La Rosa"];                              
-        } else if(alcaldia.value == "Comuna_3"){
-        var optionArray = ["Barrio*|Barrio*","La Salle|La Salle",
-                                  "Las Granjas|Las Granjas",
-                                  "Campo Valdes Nº 2|Campo Valdes Nº 2",
-                                  "Santa Inés|Santa Inés",
-                                  "El Raizal|El Raizal",
-                                  "El Pomar|El Pomar",
-                                  "Manrique Central No. 2|Manrique Central No. 2",
-                                  "Manrique Oriental|Manrique Oriental",
-                                  "Versalles Nº 1|Versalles Nº 1",
-                                  "Versalles Nº 2|Versalles Nº 2",
-                                  "La Cruz|La Cruz",
-                                  "Oriente|Oriente",
-                                  "Maria Cano Carambolas|Maria Cano Carambolas",
-                                  "San José La Cima Nº 1|San José La Cima Nº 1",
-                                  "San José La Cima Nº 2|San José La Cima Nº 2"];                           
-        } else if(alcaldia.value == "Comuna_4"){
-        var optionArray = ["Barrio*|Barrio*","Berlín|Berlín",
-                                  "San Isidro|San Isidro",
-                                  "Palermo|Palermo",
-                                  "Bermejal Los Álamos|Bermejal Los Álamos",
-                                  "Moravia|Moravia",
-                                  "Sevilla|Sevilla",
-                                  "San Pedro|San Pedro",
-                                  "Manrique Central Nº 1|Manrique Central Nº 1",
-                                  "Campo Valdes Nº 1|Campo Valdes Nº 1",
-                                  "Las Esmeraldas|Las Esmeraldas",
-                                  "La Piñuela|La Piñuela",
-                                  "Aranjuez|Aranjuez",
-                                  "Brasilia|Brasilia",
-                                  "Miranda|Miranda"];                            
-        } else if(alcaldia.value == "Comuna_5"){ 
-        var optionArray = ["Barrio*|Barrio*","Toscana|Toscana",
-                                  "Las Brisas|Las Brisas",
-                                  "Florencia|Florencia",
-                                  "Tejelo|Tejelo",
-                                  "Boyacá|Boyacá",
-                                  "Héctor Abad Gómez|Héctor Abad Gómez",
-                                  "Belalcazar|Belalcazar",
-                                  "Girardot|Girardot",
-                                  "Tricentenario|Tricentenario",
-                                  "Castilla|Castilla",
-                                  "Francisco Antonio Zea|Francisco Antonio Zea",
-                                  "Alfonso López|Alfonso López",
-                                  "Caribe|Caribe",
-                                  "El Progreso|El Progreso"];                           
-        } else if(alcaldia.value == "Comuna_6"){
-        var optionArray = ["Barrio*|Barrio*","Santander|Santander",
-                                  "Doce de Octubre Nº 1|Doce de Octubre Nº 1",
-                                  "Doce de Octubre Nº 2|Doce de Octubre Nº 2",
-                                  "Pedregal|Pedregal",
-                                  "La Esperanza|La Esperanza",
-                                  "San Martín de Porres|San Martín de Porres",
-                                  "Kennedy|Kennedy",
-                                  "Picacho|Picacho",
-                                  "Picachito|Picachito",
-                                  "Mirador del Doce|Mirador del Doce",
-                                  "Progreso Nº 2|Progreso Nº 2",
-                                  "El Triunfo|El Triunfo"];                          
-        } else if(alcaldia.value == "Comuna_7"){
-        var optionArray = ["Barrio*|Barrio*","Cerro El Volador|Cerro El Volador",
-                                  "San Germán|San Germán",
-                                  "Facultad de Minas Universidad Nacional|Facultad de Minas Universidad Nacional",
-                                  "La Pilarica|La Pilarica",
-                                  "Bosques de San Pablo|Bosques de San Pablo",
-                                  "Altamira|Altamira",
-                                  "Córdoba|Córdoba",
-                                  "López de Mesa|López de Mesa",
-                                  "El Diamante|El Diamante",
-                                  "Aures Nº 1|Aures Nº 1",
-                                  "Aures Nº 2|Aures Nº 2",
-                                  "Bello Horizonte|Bello Horizonte",
-                                  "Villa Flora|Villa Flora",
-                                  "Palenque|Palenque",
-                                  "Robledo|Robledo",
-                                  "Cucaracho|Cucaracho",
-                                  "Fuente Clara|Fuente Clara",
-                                  "Santa Margarita|Santa Margarita",
-                                  "Olaya Herrera|Olaya Herrera",
-                                  "Pajarito|Pajarito",
-                                  "Monteclaro|Monteclaro",
-                                  "Nueva Villa de La Iguaná|Nueva Villa de La Iguaná"];
-        } else if(alcaldia.value == "Comuna_8"){
-        var optionArray = ["Barrio*|Barrio*","Villa Hermosa|Villa Hermosa",
-                                "La Mansión|La Mansión",
-                                "San Miguel|San Miguel",
-                                "La Ladera|La Ladera",
-                                "Batallón Girardot|Batallón Girardot",
-                                "Llanaditas|Llanaditas",
-                                "Los Mangos|Los Mangos",
-                                "Enciso|Enciso",
-                                "Sucre|Sucre",
-                                "El Pinal|El Pinal",
-                                "Trece de Noviembre|Trece de Noviembre",
-                                "La Libertad|La Libertad",
-                                "Villatina|Villatina",
-                                "San Antonio|San Antonio",
-                                "Las Estancias|Las Estancias",
-                                "Villa Turbay|Villa Turbay",
-                                "La Sierra|La Sierra",
-                                "Villa Lilliam|Villa Lilliam"];
-        } else if(alcaldia.value == "Comuna_9"){
-        var optionArray = ["Barrio*|Barrio*","Juan Pablo II|Juan Pablo II",
-                              " Barrios de Jesús| Barrios de Jesús",
-                              "Bombona Nº 2|Bombona Nº 2",
-                              "Los Cerros El Vergel|Los Cerros El Vergel",
-                              "Alejandro Echavarría|Alejandro Echavarría",
-                              "Barrio Caicedo|Barrio Caicedo",
-                              "Buenos Aires|Buenos Aires",
-                              "Miraflores|Miraflores",
-                              "Cataluña|Cataluña",
-                              "La Milagrosa|La Milagrosa",
-                              "Gerona|Gerona",
-                              "El SalvadorEl Salvador",
-                              "Loreto|Loreto",
-                              "Asomadera Nº 1|Asomadera Nº 1",
-                              "Asomadera Nº 2|Asomadera Nº 2",
-                              "Asomadera Nº 3|Asomadera Nº 3",
-                              "Ocho de Marzo|Ocho de Marzo"];
-        } else if(alcaldia.value == "Comuna_10"){
-        var optionArray = ["Barrio*|Barrio*","Prado|Prado",
-                              "Jesús Nazareno|Jesús Nazareno",
-                              "Estación Villa|Estación Villa",
-                              "San Benito|San Benito",
-                              "Guayaquil|Guayaquil",
-                              "Corazón de Jesús|Corazón de Jesús",
-                              "Perpetuo Socorro|Perpetuo Socorro",
-                              "Barrio Colón|Barrio Colón",
-                              "Las Palmas|Las Palmas",
-                              "Bomboná Nº 1|Bomboná Nº 1",
-                              "Boston|Boston",
-                              "La Candelaria|La Candelaria",
-                              "Los Ángeles|Los Ángeles",
-                              "San Diego|San Diego"];
-        } else if(alcaldia.value == "Comuna_11"){
-        var optionArray = ["Barrio*|Barrio*","Carlos E. Restrepo|Carlos E. Restrepo"
-                            ,"Suramericana|Suramericana",
-                            "Naranjal|Naranjal",
-                            "San Joaquín|San Joaquín",
-                            "Los Conquistadores|Los Conquistadores",
-                            "Bolivariana|Bolivariana",
-                            "Laureles|Laureles",
-                            "Las Acacias|Las Acacias",
-                            "La Castellana|La Castellana",
-                            "Lorena|Lorena",
-                            "El Velódromo|El Velódromo",
-                            "Estadio|Estadio",
-                            "Los Colores|Los Colores",
-                            "Cuarta Brigada|Cuarta Brigada",
-                            "Florida Nueva|Florida Nueva"];
-        } else if(alcaldia.value == "Comuna_12"){
-        var optionArray = ["Barrio*|Barrio*","Ferrini|Ferrini"
-                            ,"Calasanz|Calasanz",
-                            "Los Pinos|Los Pinos",
-                            "La América|La América",
-                            "La Floresta|La Floresta",
-                            "Santa Lucia|Santa Lucia",
-                            "El Danubio|El Danubio",
-                            "Campo Alegre|Campo Alegre",
-                            "Santa Mónica|Santa Mónica",
-                            "Barrio Cristóbal|Barrio Cristóbal",
-                            "Simón Bolívar|Simón Bolívar",
-                            "Santa Teresita|Santa Teresita",
-                            "Calasanz Parte Alta|Calasanz Parte Alta",];
-        } else if(alcaldia.value == "Comuna_13"){
-        var optionArray = ["Barrio*|Barrio*","El Pesebre|El Pesebre",
-                              "Blanquizal|Blanquizal",
-                              "Santa Rosa de Lima|Santa Rosa de Lima",
-                              "Los Alcázares|Los Alcázares",
-                              "Metropolitano|Metropolitano",
-                              "La Pradera|La Pradera",
-                              "Juan XIII La Quiebra|Juan XIII La Quiebra",
-                              "San Javier Nº 1|San Javier Nº 1",
-                              "San Javier Nº 2|San Javier Nº 2",
-                              "Veinte de Julio|Veinte de Julio",
-                              "Belencito|Belencito",
-                              "Betania|Betania",
-                              "El Corazón|El Corazón",
-                              "Las Independencias|Las Independencias",
-                              "Nuevos Conquistadores|Nuevos Conquistadores",
-                              "El Salado|El Salado",
-                              "Eduardo Santos|Eduardo Santos",
-                              "Antonio Nariño|Antonio Nariño",
-                              "El Socorro|El Socorro"];
-        } else if(alcaldia.value == "Comuna_14"){
-        var optionArray = ["Barrio*|Barrio*","Barrio Colombia|Barrio Colombia",
-                              "Simesa|Simesa",
-                              "Villa Carlota|Villa Carlota",
-                              "Castropol|Castropol",
-                              "Lalinde|Lalinde",
-                              "Las Lomas Nº 1|Las Lomas Nº 1",
-                              "Las Lomas Nº 2|Las Lomas Nº 2",
-                              "Altos del Poblado|Altos del Poblado",
-                              "El Tesoro|El Tesoro",
-                              "Los Naranjos|Los Naranjos",
-                              "Los Balsos Nº 1|Los Balsos Nº 1",
-                              "Los Balsos Nº 2|Los Balsos Nº 2",
-                              "San Lucas|San Lucas",
-                              "El Diamante Nº 2|El Diamante Nº 2",
-                              "El Castillo|El Castillo",
-                              "Alejandría|Alejandría",
-                              "La Florida|La Florida",
-                              "El Poblado|El Poblado",
-                              "Manila|Manila",
-                              "Astorga|Astorga",
-                              "Patio Bonito|Patio Bonito",
-                              "La Aguacatala|La Aguacatala",
-                              "Santa María de Los Ángeles|Santa María de Los Ángeles"];
-        } else if(alcaldia.value == "Comuna_15"){
-        var optionArray = ["Barrio*|Barrio*","Tenche|Tenche",
-                              "Trinidad|Trinidad",
-                              "Santa Fé,|Santa Fé,",
-                              "Parque Juan Pablo II|Parque Juan Pablo II",
-                              "Campo Amor|Campo Amor",
-                              "Noel|Noel",
-                              "Cristo Rey|Cristo Rey",
-                              "Guayabal|Guayabal",
-                              "La Colina|La Colina",
-                              "El Rodeo|El Rodeo"];
-        } else if(alcaldia.value == "Comuna_16"){
-        var optionArray = ["Barrio*|Barrio*","Fátima|Fátima",
-                              "Rosales|Rosales",
-                              "Belén|Belén",
-                              "Granada|Granada",
-                              "San Bernardo|San Bernardo",
-                              "Las Playas|Las Playas",
-                              "Diego Echevarria|Diego Echevarria",
-                              "La Mota|La Mota",
-                              "La Hondonada|La Hondonada",
-                              "El Rincón|El Rincón",
-                              "La Loma de Los Bernal|La Loma de Los Bernal",
-                              "La Gloria|La Gloria",
-                              "Altavista|Altavista",
-                              "La Palma|La Palma",
-                              "Los Alpes|Los Alpes",
-                              "Las Violetas|Las Violetas",
-                              "Las Mercedes|Las Mercedes",
-                              "Nueva Villa de Aburrá|Nueva Villa de Aburrá",
-                              "Miravalle|Miravalle",
-                              "El Nogal – Los Almendros|El Nogal – Los Almendros",
-                              "Cerro Nutibara|Cerro Nutibara"];                 
-        } else if(alcaldia.value == "Comuna_50"){
-        var optionArray = ["Barrio*|Barrio*","San Sebastián de Palmitas|San Sebastián de Palmitas"];                 
-        } else if(alcaldia.value == "Comuna_60"){
-        var optionArray = ["Barrio*|","San CristóbalSan Cristóbal"];                 
-        } else if(alcaldia.value == "Comuna_70"){
-        var optionArray = ["Barrio*|Barrio*","Altavista|Altavista"];                 
-        } else if(alcaldia.value == "Comuna_80"){
-        var optionArray = ["Barrio*|Barrio*","San Antonio de Prado|San Antonio de Prado"];                 
-        } else if(alcaldia.value == "Comuna_90"){
-        var optionArray = ["Barrio*|Barrio*","Santa Elena|Santa Elena"];                 
-        };
+
+        {% for i in communes %}
+        
+            if(commune.value == "{{i.name_commune}}")
+            {
+                var optionArray = [
+                    "BARRIO*|BARRIO*",
+                    {% for neighborhood in neighborhoods %}
+                        {% if neighborhood.name_commune.name_commune == i.name_commune %}
+                            "{{neighborhood.name_neighborhood}}|{{neighborhood.name_neighborhood}}",
+                        {% endif %}
+                    {%endfor%}
+                ];
+            }        
+
+        {% endfor %}
     
         for(option = 0;option < optionArray.length; option++){
             var pair = optionArray[option].split("|");
@@ -297,7 +37,7 @@
 </script>
 
 <section class="mb-8 pb-4">
-
+    
     <div class="grid max-w-screen-xl p-2 mx-auto mb-4 lg:gap-4 xl:gap-4 lg:grid-cols-2">
 
         <div class="mx-auto place-self-center lg:col-span-1 p-2 ">
@@ -362,8 +102,7 @@
                     <div class="relative z-0 w-full mb-4 group">
                         <input type="email" name="email" id="floating_email" value="{% if form.email.value%}{{form.email.value}}{% endif %}" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-green-400 appearance-none dark:text-white dark:border-green-300 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Correo electrónico*</label>
-                    </div>
-                   
+                    </div>                   
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-4 group">
                             <input type="number" name="phone_number" id="floating_phone" value="{% if form.phone_number.value%}{{form.phone_number.value}}{% endif %}"
@@ -384,36 +123,21 @@
                     <div class="grid md:grid-cols-2 md:gap-6">
                         
                         <div class="relative z-0 w-full mb-4 group">
-                            {% if form.commune.errors %}<span class='text-red-400 text-xs'>{{form.commune.errors}}</span>{% endif%}
+                            {% if form.commune.errors %}
+                                <span class='text-red-400 text-xs'>{{form.commune.errors}}</span>
+                            {% endif%}
                             <select name="commune" 
-                                id="Alcaldia"  
-                                data-placeholder="- Seleccione Alcaldía -"
+                                id="commune"  
+                                data-placeholder="- Seleccione Comuna -"
                                 onchange="change(this.id, 'colonia')"
-                                value="<%= typeof Alcaldia != 'undefined' ? Alcaldia : '' %>" 
+                                value="<%= typeof commune != 'undefined' ? commune : '' %>" 
                                 value="{% if form.address.value%}{{form.address.value}}{% endif %}"
                                 class="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-green-400 text-gray-500 text-sm appearance-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-green-300 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" required>
                                 <option value="Comuna*">Comuna*</option>
-                                <option value="Comuna_1">Comuna 1 - Popular</option>
-                                <option value="Comuna_2">Comuna 2 - Santa Cruz</option>
-                                <option value="Comuna_3">Comuna 3 - Manrique</option>    
-                                <option value="Comuna_4">Comuna 4 - Aranjuez</option>
-                                <option value="Comuna_5">Comuna 5 - Castilla</option>
-                                <option value="Comuna_6">Comuna 6 - Doce de octubre</option>    
-                                <option value="Comuna_7">Comuna 7 - Robledo</option>
-                                <option value="Comuna_8">Comuna 8 - Villa Hermosa</option>
-                                <option value="Comuna_9">Comuna 9 - Buenos Aires</option>    
-                                <option value="Comuna_10">Comuna 10 - La Candelaria</option>    
-                                <option value="Comuna_11">Comuna 11 - Laureles-Estadio</option>    
-                                <option value="Comuna_12">Comuna 12 - La América</option>    
-                                <option value="Comuna_13">Comuna 13 - San Javier</option>    
-                                <option value="Comuna_14">Comuna 14 - Poblado</option>    
-                                <option value="Comuna_15">Comuna 15 - Guayabal</option>    
-                                <option value="Comuna_16">Comuna 16 - Belén</option>    
-                                <option value="Comuna_50">Comuna 50 - San Sebastián de Palmitas</option>    
-                                <option value="Comuna_60">Comuna 60 - San Cristóbal</option>    
-                                <option value="Comuna_70">Comuna 70 - Altavista</option>    
-                                <option value="Comuna_80">Comuna 80 - San Antonio de Prado</option>    
-                                <option value="Comuna_90">Comuna 90 - Santa Elena</option> 
+                                {% for commune in communes %}
+                                <option value="{{commune.name_commune}}">{{commune.name_commune}} - {{commune.description}}</option>
+                                {%endfor%}
+                                
                             </select>
                             <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"></label>
                         </div>
@@ -427,7 +151,6 @@
                         </div>
                                             
                     </div>
-
                     <div class="flex items-start mb-6">
                         <div class="flex items-center h-5">
                         <input name="is_valid" id="terms" type="checkbox" class="w-4 h-4 border border-gray-600 rounded bg-gray-50 focus:ring-3 focus:ring-green-400 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
@@ -437,9 +160,7 @@
                     </div>
                     <div class="text-center">
                         <button type="submit" class="text-white bg-blue-600 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-blue-600 font-medium rounded-lg text-lg w-48 py-1 text-center">Unirme</button>
-                    </div>
-
-                    
+                    </div>                    
                 </form>
         
             {% endif %}

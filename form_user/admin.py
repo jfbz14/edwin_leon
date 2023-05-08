@@ -18,8 +18,8 @@ class CommuneModelAdmin(ImportExportModelAdmin):
     """CommuneModel admin."""
 
     resource_class = CommuneModelResource
-    list_display = ('id', 'name_communa', )
-    search_fields = ('name_communa', )
+    list_display = ('id', 'name_commune', )
+    search_fields = ('name_commune', )
     list_per_page = 25
 
 
@@ -34,8 +34,8 @@ class NeighborhoodModelAdmin(ImportExportModelAdmin):
     """NeighborhoodModel admin."""
 
     resource_class = NeighborhoodModelResource
-    list_display = ('id', 'name_communa', 'name_neighborhood',)
-    search_fields = ('name_communa', 'name_neighborhood',)
+    list_display = ('id', 'name_commune', 'name_neighborhood',)
+    search_fields = ('name_commune', 'name_neighborhood',)
     list_per_page = 25
 
 

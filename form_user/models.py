@@ -66,7 +66,7 @@ class UserProfile(models.Model):
 
 class CommuneModel(models.Model):
     """ model commune"""
-    name_communa = models.CharField(max_length=150, unique=True)
+    name_commune = models.CharField(max_length=150, unique=True)
     description = models.CharField(max_length=150, unique=True, blank=True, null=True)
 
     def __str__(self):
@@ -78,7 +78,7 @@ class CommuneModel(models.Model):
 class NeighborhoodModel(models.Model):
     """model neighborhood"""
 
-    name_communa = models.ForeignKey(CommuneModel, on_delete=models.CASCADE)
+    name_commune = models.ForeignKey(CommuneModel, on_delete=models.CASCADE)
     name_neighborhood = models.CharField(max_length=150, unique=True)
 
     def __str__(self):

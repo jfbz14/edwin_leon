@@ -3,6 +3,7 @@ from django.views.generic import FormView
 
 # model
 from .forms import FormUserProfile
+from .models import CommuneModel, NeighborhoodModel
 
 # Create your views here.
 
@@ -11,6 +12,10 @@ class FormUserView(FormView):
 
     template_name = 'form/form_user.html'
     form_class = FormUserProfile
+    extra_context = {
+        'communes': CommuneModel.objects.all(),
+        'neighborhoods' : NeighborhoodModel.objects.all(),
+        }
 
     def form_valid(self, form):
         """Save form data."""
