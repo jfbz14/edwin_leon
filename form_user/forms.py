@@ -1,5 +1,4 @@
 # Django
-from django.contrib.admin.widgets import AutocompleteSelect
 from django import forms
 from datetime import datetime, timedelta
 
@@ -14,7 +13,7 @@ class FormUserProfile(forms.ModelForm):
         """Form settings"""
 
         model = UserProfile
-        exclude = ['leader']
+        exclude = ['is_valid']
 
     def clean_date(self):
         """ validate date valid. """
@@ -58,8 +57,6 @@ class FormUserProfile(forms.ModelForm):
 
         model = UserLeader
         fields = "__all__"
-
-        
 
     def clean_date(self):
         """ validate date valid. """

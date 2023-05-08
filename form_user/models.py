@@ -39,7 +39,7 @@ class UserProfile(models.Model):
     date = models.DateField()
     email = models.EmailField()
     phone_number = models.CharField(max_length=10)
-    leader = models.CharField(max_length=4, default="1111")
+    leader = models.ForeignKey(UserLeader, on_delete=models.CASCADE, blank=True, null=True )
     address = models.CharField(max_length=150)
     commune = models.CharField(max_length=150)
     neighborhood = models.CharField(max_length=150)
@@ -62,4 +62,26 @@ class UserProfile(models.Model):
         self.neighborhood = self.neighborhood.upper()
 
         super().save(*args, **kwargs)
+
+
+class CommuneModel(models.Model):
+    """ model commune"""
+    name_communa = models.CharField(max_length=150, unique=True)
+
+    def __str__(self):
+        """return name"""
+
+        return '{}'.format(self.name_communa)
+
+
+class NeighborhoodModel(models.Model):
+    """model neighborhood"""
+
+    name_communa = models.ForeignKey(CommuneModel, on_delete=models.CASCADE)
+    name_neighborhood = models.CharField(max_length=150, unique=True)
+
+    def __str__(self):
+        """return name"""
+
+        return '{}'.format(self.name_neighborhood)
     
