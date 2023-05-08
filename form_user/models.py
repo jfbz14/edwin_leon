@@ -67,6 +67,7 @@ class UserProfile(models.Model):
 class CommuneModel(models.Model):
     """ model commune"""
     name_communa = models.CharField(max_length=150, unique=True)
+    description = models.CharField(max_length=150, unique=True, blank=True, null=True)
 
     def __str__(self):
         """return name"""
