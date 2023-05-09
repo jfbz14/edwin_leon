@@ -80,6 +80,7 @@ WSGI_APPLICATION = 'edwin_leon.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
 """
 DATABASES = {
         'default': {
@@ -94,6 +95,7 @@ DATABASES = {
     default=env('DATABASE_URL')
     )
 } 
+
 
 
 # Password validation

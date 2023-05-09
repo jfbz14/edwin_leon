@@ -1,0 +1,150 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block content_title %}
+Registrar lider
+{% endblock content_title %}
+
+{% block content %}
+
+
+<section class="mb-8 py-4 px-2 mx-auto">
+    
+    <div class="w-full max-w-lg  mx-auto mb-4">
+        {% if request.GET.register == 'register_valid' %}
+
+            <div class="mx-auto p-2 border border-yellow-400 shadow-lg rounded-lg shadow-green-500/50 mt-8 mb-4">                
+                <p class="max-w-2xl text-base text-gray-800 tracking-tight leading-none md:text-3xl xl:text-4xl text-justify">
+                    ¡Bienvenido a bordo! Tu apoyo marca la diferencia y, juntos, podemos transformar Medellín en una ciudad próspera e inclusiva.
+                </p>
+            </div> 
+            <div class=" text-center mt-8 ">                
+                <a href="{% url 'forms_users:register_leader' %}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Nuevo Registro</a>
+            </div> 
+
+        {% else %}
+        
+            <form class="px-2 sm:px-4 pb-4 bg-gray-150 border border-blue-300 rounded-lg shadow-lg shadow-green-500/50 " method="POST">
+                <p class="mb-4 pb-2 mt-4 px-2 py-1 bg-transparent border-b border-blue-600 text-xl text-green-800 leading-none text-center font-bold rounded-lg shadow-lg ">
+                   Resgistro de Líderes
+                </p>
+                {% csrf_token %}
+
+                
+                <div class="relative z-0 w-full mb-2 group">
+                    <label for="nombre" class="block text-sm font-medium text-green-800">
+                    Nombres*</label>
+                    <input 
+                        type="text" 
+                        name="first_name"
+                        value="{% if form.first_name.value%}{{form.first_name.value}}{% endif %}" 
+                        class="block w-full py-1 px-2 text-sm text-gray-900 border border-gray-300 rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                </div>
+                
+                <div class="relative z-0 w-full mb-2 group">
+                    <label for="apellido" class="block text-sm font-medium text-green-800" >Apellidos*</label>
+                    <input 
+                        type="text"
+                        name="last_name" 
+                        value="{% if form.last_name.value%}{{form.last_name.value}}{% endif %}" 
+                        class="block w-full py-1 px-2 text-sm text-gray-900 border border-gray-300 rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                </div>
+                
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 w-full mb-2 group">
+                        <label for="documento" 
+                            class="block text-sm font-medium {% if form.document_number.errors %}text-red-500 {%else%}text-green-800{% endif %}">
+                            {% if form.document_number.errors %}{{form.document_number.errors}}{% else %}Cedula* (Sin puntos) {% endif %}
+                        </label>
+                        <input type="number" 
+                        name="document_number" 
+                        value="{% if form.document_number.value%}{{form.document_number.value}}{% endif %}" 
+                        class="block w-full py-1 px-2 text-sm border{% if form.document_number.errors %}text-red-500 border-red-300 {%else%}text-gray-900 border-gray-300{% endif %} rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+
+                    <div class="relative z-0 w-full mb-2 group">
+                        <label for="fecha" 
+                            class="block text-sm font-medium {% if form.date.errors %}text-red-500 {%else%}text-green-800{% endif %}">
+                            {% if form.date.errors %}{{form.date.errors}}{% else %}Fecha de nacimiento*{% endif %}
+                        </label>
+                        <input type="date" 
+                        name="date" 
+                        max="2005-01-01"
+                        value="{% if form.date.value%}{{form.date.value}}{% endif %}" 
+                        class="block w-full py-1 px-2 text-sm border{% if form.date.errors %}text-red-500 border-red-300 {%else%}text-gray-900 border-gray-300{% endif %} rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                                            
+                </div>
+
+                <div class="relative z-0 w-full mb-2 group">
+                    <label for="documento" 
+                        class="block text-sm font-medium text-green-800">
+                        Correo*
+                    </label>
+                    <input type="email" 
+                    name="email" 
+                    value="{% if form.email.value%}{{form.email.value}}{% endif %}" 
+                    class="block w-full py-1 px-2 text-sm border text-gray-900 border-gray-300 rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                </div>  
+
+                <div class="relative z-0 w-full mb-2 group">
+                    <label for="documento" 
+                        class="block text-sm font-medium text-green-800">
+                        Telefono*
+                    </label>
+                    <input type="number" 
+                    name="phone_number" 
+                    value="{% if form.phone_number.value%}{{form.phone_number.value}}{% endif %}" 
+                    class="block w-full py-1 px-2 text-sm border text-gray-900 border-gray-300 rounded-md bg-white focus:ring-blue-500 focus:border-blue-500" required>
+                </div>                  
+                                                            
+                <div class="flex items-start mb-2">
+                    <div class="flex items-center h-5">
+                    <input name="is_valid" id="terms" type="checkbox" class="w-4 h-4 border border-gray-600 rounded bg-gray-50 focus:ring-3 focus:ring-green-400 " required>
+                    </div>
+                    <label for="terms" class="ml-2 text-xs font-medium text-gray-900">
+                        *Al registrarte, aceptas que tus datos sean tratados según la <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_bank" class="text-blue-600 hover:underline"> ley 1581 de 2012</a></label>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2 text-center">Registrar</button>
+                </div>                    
+            </form>
+    
+        {% endif %}
+
+    </div> 
+</section>
+
+<div class="fixed bottom-0 left-0 z-50 w-full h-14 bg-gray-600 border-t-4 border-yellow-300 pt-2">
+
+    <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
+        <a href="{% url 'forms_users:home' %}" type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+            <svg 
+                class="w-6 h-6 text-white group-hover:text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"></path>
+            </svg>       
+            
+            <span class="text-sm text-white group-hover:text-blue-600">Web</span>
+        </a>
+       
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+           
+            <img class="w-6 h-6 my-1 text-white group-hover:text-blue-600" src="{% static 'img/face.png' %}" alt="product image" />
+            <span class="text-sm text-white  group-hover:text-blue-600 ">Facebook</span>
+        </button>
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+           
+            <img class="w-6 h-6 my-1 text-white group-hover:text-blue-600 " src="{% static 'img/insta.png' %}" alt="product image" />
+            <span class="text-sm text-white group-hover:text-blue-600 ">Instagram</span>
+        </button>
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+           
+            <img class="w-6 h-6 my-1 text-white group-hover:text-blue-600" src="{% static 'img/twi.png' %}" alt="product image" />
+            <span class="text-sm text-white group-hover:text-blue-600 ">Twitter</span>
+        </button>
+        
+        
+    </div>
+</div>
+      
+{% endblock content %}
