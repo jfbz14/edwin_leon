@@ -95,4 +95,12 @@ class FormUserLeader(forms.ModelForm):
             raise forms.ValidationError('Fecha invalida')          
         else:
             return date
+        
+    def clean_email(self):
+        """ validate field. """
+
+        email = self.cleaned_data['email']
+        if email == None or email == '':
+            email = 'mysite@mydominio.com'
+        return email      
 
