@@ -82,6 +82,7 @@ WSGI_APPLICATION = 'edwin_leon.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 """
+
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -94,7 +95,7 @@ DATABASES = {
 'default': dj_database_url.config(
     default=env('DATABASE_URL')
     )
-} 
+}
 
 
 
