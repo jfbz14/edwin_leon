@@ -10,7 +10,7 @@ class UserLeader(models.Model):
             "unique": "Documento ya ha sido registrado",
         },)
     date = models.DateField()
-    email = models.EmailField(blank=True, null=True, default='mysite@mydominio.com')
+    email = models.EmailField(blank=True, null=True)
     phone_number = models.CharField(max_length=10)
 
     def __str__(self):
@@ -37,7 +37,7 @@ class UserProfile(models.Model):
             "unique": "Documento está registrado",
         },)
     date = models.DateField()
-    email = models.EmailField(blank=True, null=True, default='mysite@mydominio.com')
+    email = models.EmailField(blank=True, null=True)
     phone_number = models.CharField(max_length=10)
     leader = models.ForeignKey(UserLeader, on_delete=models.CASCADE, blank=True, null=True )
     address = models.CharField(max_length=150)
