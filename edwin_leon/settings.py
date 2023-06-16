@@ -89,12 +89,24 @@ DATABASES = {
             'NAME': BASE_DIR / 'db.sqlite3',
         }
 }
-"""
-CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
 DATABASES = {
 'default': dj_database_url.config(
     default=env('DATABASE_URL')
     )
+}
+"""
+
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
+
+DATABASES = {
+    'default': {
+        'ENGINE': env('ENGINE'),
+        'NAME': env('NAME'),                      
+        'USER': env('USER'),                      
+        'PASSWORD': env('PASSWORD'),                  
+        'HOST': env('HOST'),                      
+        'PORT': env('PORT'),                     
+    }
 }
 
 
