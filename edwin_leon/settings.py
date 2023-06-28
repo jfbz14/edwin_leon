@@ -96,7 +96,7 @@ DATABASES = {
 }
 """
 
-#CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
 
 DATABASES = {
     'default': {
